@@ -1,0 +1,32 @@
+<html>
+<head>
+<title> Student Form submission App </title>
+<style>
+	*{font-size: 30px; font-family:Century;}
+	body {background-color: lightblue; }
+	.errorlist{ color: red; }
+</style>
+</head>
+<center>
+	<h1> Create Page </h1>
+	<a href = "{% url 'home' %}"> 	Home </a>
+	<br>
+	<form method = "POST" enctype = "multipart/form-data">
+	{% csrf_token %}
+	<table>
+		{{ fm.as_table }}
+	</table>
+	<input type= "submit"/>
+	</form>
+	<h2>{{ msg }}</h2>
+	
+	
+</center>
+</body>
+</html>
+
+
+
+
+
+

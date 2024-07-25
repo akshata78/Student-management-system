@@ -1,0 +1,45 @@
+<html>
+<head>
+<title> Student Form submission App </title>
+<style>
+	*{font-size: 30px; font-family:Century;}
+	body {background-color: lightblue; }
+</style>
+</head>
+<body>
+<center>
+	<h1> Home Page </h1>
+	<a href = "{% url 'create' %}"> Create New Student</a>
+	<br><br>
+	
+	<table border = "5" style = "width:50%;">
+		<tr>
+			<th> Rno </th>
+			<th> Name </th>
+			<th> View </th>
+			<th> File Name </th>
+			<th> Delete </th>
+		</tr>
+		{% for d in data %}
+		<tr style = "text-align: center;">
+			<td> {{ d.rno }}</td>
+			<td> {{ d.name }}</td>
+			
+			<td><a href = {{ d.ms.url }}> View</a></td>
+			<td> {{ d.file }}</td>
+			<td> <a href = "{% url 'remove' id=d.rno %}"
+			onclick = "return confirm('r u sure???')" > Delete </a> 
+			
+		</tr>
+	
+		{% endfor %}
+	</table>
+</center>
+</body>
+</html>
+
+
+
+
+
+
